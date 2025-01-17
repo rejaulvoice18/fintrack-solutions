@@ -7,3 +7,14 @@
 body{
   background-color: #14110f;
 }
+a.active{
+  background-color: #34312d !important;
+}
+
+/* :root {
+  --body-background: #14110f;
+}
+
+[data-theme='dark'] {
+  --body-background: #14110f;
+} */
