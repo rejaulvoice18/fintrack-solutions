@@ -1,9 +1,14 @@
+import Company from "../../../components/Company/Company";
+import Services from "../../../components/Services/Services";
+import Banner from "../Banner/Banner";
 
 
 const Home = () => {
     return (
         <div>
-            <h2>HOme</h2>
+            <Banner></Banner>
+            <Company></Company>
+            <Services></Services>
         </div>
     );
 };
