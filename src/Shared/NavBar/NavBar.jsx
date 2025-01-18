@@ -2,11 +2,19 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { Tooltip as ReactTooltip } from 'react-tooltip'
+import useAdmin from '../../hooks/useAdmin';
 
 const NavBar = () => {
     const { user, logOutUSer } = useAuth();
+    const [isAdmin] = useAdmin()
+
     const navOptions = <>
-        <li><NavLink to="/dashboard/adminHome">Dashboard</NavLink></li>
+        {
+            user && isAdmin && <li><NavLink to="/dashboard/adminHome">Dashboard</NavLink></li>
+        }
+        {
+            user && !isAdmin && <li><NavLink to="/dashboard/employeeHome">Dashboard</NavLink></li>
+        }
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
         <li><NavLink to="/About">About</NavLink></li>
