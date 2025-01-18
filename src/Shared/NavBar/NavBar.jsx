@@ -49,7 +49,7 @@ const NavBar = () => {
                                 {navOptions}
                             </ul>
                         </div>
-                        <a className="btn btn-ghost text-xl">Bistro Boss</a>
+                        <a className="btn btn-ghost text-xl">FinTrack Solutions</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -57,11 +57,11 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <Link>
-                            <a className="bg-[#34312d] text-[14px] py-1.5 px-3 rounded-md">Register</a>
+                        <Link to='/signUp'>
+                            <a className="bg-black text-[14px] hover:bg-gray-700 py-2 px-4 rounded">Register</a>
                         </Link>
                         <Link to='/login'>
-                            <a className="bg-[#34312d] text-[14px]  py-1.5 px-3 rounded-md ml-3">Login</a>
+                            <a className="bg-black text-[14px] hover:bg-gray-700 py-2 px-6 rounded ml-3">Login</a>
                         </Link>
 
                     </div>

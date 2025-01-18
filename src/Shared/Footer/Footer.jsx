@@ -37,7 +37,7 @@ const Footer = () => {
                     <div className='border-b py-5'>
 
                     </div>
-                    <div className='flex justify-between mt-8'>
+                    <div className='flex justify-between mt-8 gap-5'>
                         <div className='text-white'><a>2025 . All rights resered</a></div>
                         <div className='flex gap-5 text-white'>
                             <a href="">Terms of Use</a>
