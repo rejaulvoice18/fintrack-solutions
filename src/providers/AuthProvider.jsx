@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile,  } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile,  } from 'firebase/auth';
 import auth from "../firebase/firebase.config";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 export const AuthContext = createContext(null)
@@ -27,6 +27,12 @@ const AuthProvider = ({children}) => {
         return updateProfile(auth.currentUser, {
             displayName: name, photoURL: photo 
         });
+    }
+
+    // logout user
+    const logOutUSer = () => {
+        setLoading(true);
+        return signOut(auth)
     }
 
     // setting on auth change and jwt
@@ -64,7 +70,8 @@ const AuthProvider = ({children}) => {
         loading,
         createUser,
         signInUser,
-        updateUserProfile
+        updateUserProfile,
+        logOutUSer,
     }
 
     return (

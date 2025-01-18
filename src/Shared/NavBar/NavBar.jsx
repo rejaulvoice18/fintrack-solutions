@@ -4,7 +4,7 @@ import useAuth from '../../hooks/useAuth';
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 const NavBar = () => {
-    const {user} = useAuth
+    const { user, logOutUSer } = useAuth();
     const navOptions = <>
         <li><NavLink to="/dashboard/adminHome">Dashboard</NavLink></li>
         <li><NavLink to="/">Home</NavLink></li>
@@ -27,6 +27,12 @@ const NavBar = () => {
             </>
         } */}
     </>
+
+    const handleSignOut = () => {
+        logOutUSer()
+            .then(() => { })
+            .then(err => console.log(err.message))
+    }
     return (
         <div className='bg-pink-700'>
             <>
@@ -78,9 +84,9 @@ const NavBar = () => {
                                     </div>
                                     <ul
                                         tabIndex={0}
-                                        className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                       
-                                        <li onClick={handleSignOut} className=""><a>Log Out</a></li>
+                                        className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[10] mt-3 w-32 p-2 shadow">
+
+                                        <li><Link onClick={handleSignOut}>Log Out</Link></li>
                                     </ul>
                                 </div>
                                 : <>

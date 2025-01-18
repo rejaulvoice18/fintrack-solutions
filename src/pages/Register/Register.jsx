@@ -68,7 +68,15 @@ const Register = () => {
                     })
 
             })
-            .then(err => console.log(err))
+            .catch(err=>{
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${err}`,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
     }
 
     return (
