@@ -19,12 +19,11 @@ const Dashboard = () => {
                                 <NavLink to='/dashboard/adminHome'> <FaHome></FaHome>Admin Home </NavLink>
                             </li>
                             <li>
-                            <NavLink to='/dashboard/paymentHistory'> <FaList></FaList>Payment</NavLink>
+                                <NavLink to='/dashboard/all-employee-list'> <FaUsers></FaUsers> All Employees</NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/users'> <FaUsers></FaUsers> All Employees</NavLink>
+                                <NavLink to='/dashboard/payroll'> <FaList></FaList>Payment</NavLink>
                             </li>
-
                         </>
                             : <>
                                 {/* HR Home */}

@@ -7,6 +7,8 @@ import Dashboard from "../Layout/Dashboard";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import HrHome from "../pages/Dashboard/HrHome/HrHome";
 import EmployeeHome from "../pages/Dashboard/EmployeeHome/EmployeeHome";
+import AllEmployee from "../pages/Dashboard/AllEmployee/AllEmployee";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +38,14 @@ export const router = createBrowserRouter([
             {
                 path: 'adminHome',
                 element: <AdminHome></AdminHome>
+            },
+            {
+                path: 'all-employee-list',
+                element: <AllEmployee></AllEmployee>
+            },
+            {
+                path: 'payroll',
+                element: <Payment></Payment>
             },
             // hr routes
             {
