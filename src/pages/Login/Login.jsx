@@ -1,12 +1,38 @@
 import Lottie from 'lottie-react';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginData from '../../assets/lottie/login.json'
+import useAuth from '../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const {signInUser} = useAuth();
+    const navigate = useNavigate()
 
     const handleLogin = e => {
         e.preventDetault()
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.table({email, password});
+
+        signInUser(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: 'User log in successfully!',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            navigate('/')
+        })
+        .then(err=>{
+            console.log(err.message);
+        })
+
+
     }
     return (
         <div className="hero my-5 md:my-20">

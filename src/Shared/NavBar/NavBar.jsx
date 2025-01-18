@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 const NavBar = () => {
+    const {user} = useAuth
     const navOptions = <>
+        <li><NavLink to="/dashboard/adminHome">Dashboard</NavLink></li>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
         <li><NavLink to="/About">About</NavLink></li>
         <li><NavLink to="/contact-us">Contact Us</NavLink></li>
+
 
         {/* {
             user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
@@ -57,12 +62,38 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <Link to='/signUp'>
-                            <a className="bg-black text-[14px] hover:bg-gray-700 py-2 px-4 rounded">Register</a>
-                        </Link>
-                        <Link to='/login'>
-                            <a className="bg-black text-[14px] hover:bg-gray-700 py-2 px-6 rounded ml-3">Login</a>
-                        </Link>
+                        {/* star */}
+                        {
+                            user?.email
+                                ? <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
+                                            <img src={user?.photoURL && user?.photoURL} id="nameTitle" />
+                                            <ReactTooltip
+                                                anchorId="nameTitle"
+                                                place='top'
+                                                content={user?.email && user.displayName}
+                                            />
+                                        </div>
+                                    </div>
+                                    <ul
+                                        tabIndex={0}
+                                        className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                       
+                                        <li onClick={handleSignOut} className=""><a>Log Out</a></li>
+                                    </ul>
+                                </div>
+                                : <>
+                                    <Link to='/signUp'>
+                                        <a className="bg-black text-[14px] hover:bg-gray-700 py-2 px-4 rounded">Register</a>
+                                    </Link>
+                                    <Link to='/login'>
+                                        <a className="bg-black text-[14px] hover:bg-gray-700 py-2 px-6 rounded ml-3">Login</a>
+                                    </Link>
+                                </>
+                        }
+                        {/* end */}
+
 
                     </div>
                 </div>
