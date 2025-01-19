@@ -2,18 +2,21 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingCart, FaStar, FaUsers, FaUtensils, } from "react-icons/fa";
 import useAdmin from '../hooks/useAdmin';
 import useEmployee from '../hooks/useEmployee';
+import useHr from '../hooks/useHr';
 
 const Dashboard = () => {
     //TODO: get isAdmin value from the database
     // const [isAdmin] = useAdmin();
     const [isAdmin] = useAdmin()
     const [isEmployee] = useEmployee()
+    const [isHr] = useHr()
 
     return (
         <div className="md:flex">
             {/* dashboard side bar */}
             <div className="md:w-64 md:min-h-screen bg-pink-700 text-white">
                 <ul className="menu p-4">
+
                     {/* Admin Home */}
                     {
                         isAdmin && <>
@@ -27,9 +30,11 @@ const Dashboard = () => {
                                 <NavLink to='/dashboard/payroll'> <FaList></FaList>Payment</NavLink>
                             </li>
                         </>
-                    }{
-                         <>
-                            {/* HR Home */}
+                    }
+
+                    {/* HR Home */}
+                    {
+                        isHr && <>
                             <li>
                                 <NavLink to='/dashboard/hrHome'> <FaHome></FaHome>HR Home </NavLink>
                             </li>
@@ -38,10 +43,10 @@ const Dashboard = () => {
                             </li>
                         </>
                     }
-                    {/* Employee home */}
 
+                    {/* Employee home */}
                     {
-                      isEmployee &&  <>
+                        isEmployee && <>
                             <li>
                                 <NavLink to='/dashboard/employeeHome'> <FaHome></FaHome>Employee Home </NavLink>
                             </li>
