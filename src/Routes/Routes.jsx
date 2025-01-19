@@ -9,6 +9,8 @@ import HrHome from "../pages/Dashboard/HrHome/HrHome";
 import EmployeeHome from "../pages/Dashboard/EmployeeHome/EmployeeHome";
 import AllEmployee from "../pages/Dashboard/AllEmployee/AllEmployee";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import WorkSheet from "../pages/Dashboard/WorkSheet/WorkSheet";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
     {
@@ -56,6 +58,14 @@ export const router = createBrowserRouter([
             {
                 path: 'employeeHome',
                 element: <EmployeeHome></EmployeeHome>
+            },
+            {
+                path: 'work-sheet',
+                element: <WorkSheet></WorkSheet>
+            },
+            {
+                path: 'payment-history',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }

@@ -164,7 +164,7 @@ const Register = () => {
                             <p className='text-red-500'>{error}</p>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">SignUp</button>
+                            <button className="btn bg-pink-500 hover:bg-pink-700">SignUp</button>
                         </div>
                     </form>
                     <p className='pb-4 text-center'><small>Already have an account <Link to="/login">Login</Link></small></p>
