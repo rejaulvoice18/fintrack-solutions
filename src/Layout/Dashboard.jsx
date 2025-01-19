@@ -1,11 +1,13 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingCart, FaStar, FaUsers, FaUtensils, } from "react-icons/fa";
 import useAdmin from '../hooks/useAdmin';
+import useEmployee from '../hooks/useEmployee';
 
 const Dashboard = () => {
     //TODO: get isAdmin value from the database
     // const [isAdmin] = useAdmin();
     const [isAdmin] = useAdmin()
+    const [isEmployee] = useEmployee()
 
     return (
         <div className="md:flex">
@@ -14,7 +16,7 @@ const Dashboard = () => {
                 <ul className="menu p-4">
                     {/* Admin Home */}
                     {
-                        isAdmin ? <>
+                        isAdmin && <>
                             <li>
                                 <NavLink to='/dashboard/adminHome'> <FaHome></FaHome>Admin Home </NavLink>
                             </li>
@@ -25,30 +27,30 @@ const Dashboard = () => {
                                 <NavLink to='/dashboard/payroll'> <FaList></FaList>Payment</NavLink>
                             </li>
                         </>
-                            : <>
-                                {/* HR Home */}
-                                <li>
-                                    <NavLink to='/dashboard/hrHome'> <FaHome></FaHome>HR Home </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/dashboard/reservation'> <FaCalendar></FaCalendar> Reservation </NavLink>
-                                </li>
-                            </>
+                    }{
+                         <>
+                            {/* HR Home */}
+                            <li>
+                                <NavLink to='/dashboard/hrHome'> <FaHome></FaHome>HR Home </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/dashboard/reservation'> <FaCalendar></FaCalendar> Reservation </NavLink>
+                            </li>
+                        </>
                     }
                     {/* Employee home */}
 
-                    <li>
-                        <NavLink to='/dashboard/employeeHome'> <FaHome></FaHome>Employee Home </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/dashboard/reservation'> <FaCalendar></FaCalendar> Reservation </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/dashboard/review'> <FaStar></FaStar>Add a Review</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/dashboard/paymentHistory'> <FaList></FaList> Payment History</NavLink>
-                    </li>
+                    {
+                      isEmployee &&  <>
+                            <li>
+                                <NavLink to='/dashboard/employeeHome'> <FaHome></FaHome>Employee Home </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/dashboard/reservation'> <FaCalendar></FaCalendar> Reservation </NavLink>
+                            </li>
+                        </>
+                    }
+
 
                     {/* shared nav links */}
                     <div className="divider"></div>
