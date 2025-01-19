@@ -65,7 +65,7 @@ const WorkSheet = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.delete(`/users/${work._id}`)
+                axiosSecure.delete(`/worksheetdelete/${work._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch()
@@ -144,7 +144,7 @@ const WorkSheet = () => {
                                     <td>{work.tasks}</td>
                                     <td>{work.hours}</td>
                                     <td>{format(new Date(work.date), 'P')}</td>
-                                    <td><button><FaX className='text-red-700 font-bold'></FaX></button></td>
+                                    <td><button onClick={()=> handleDelete(work)}><FaX className='text-red-700 font-bold'></FaX></button></td>
                                     <td><button><FaEdit className='text-orange-500'></FaEdit></button></td>
                                 </tr>)
                                 }
