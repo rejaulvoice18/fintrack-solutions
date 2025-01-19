@@ -6,6 +6,9 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
+import { FaX } from 'react-icons/fa6';
+import { FaEdit } from 'react-icons/fa';
+import { format } from 'date-fns'
 
 const WorkSheet = () => {
     const { user } = useAuth();
@@ -17,10 +20,12 @@ const WorkSheet = () => {
         // queryKey er madhome data cache kora hochhe aikhane
         queryKey: ['worksheet'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/worksheet');
+            const res = await axiosSecure.get(`/worksheet/${user.email}`);
             return res.data;
         }
     })
+
+    console.log(workSheets)
 
     const onSubmit = async (data) => {
         // create work info in the database
@@ -36,6 +41,7 @@ const WorkSheet = () => {
         console.log('with image url', workData.data)
         if (workData.data.insertedId) {
             refetch()
+            reset()
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -45,6 +51,33 @@ const WorkSheet = () => {
             });
         }
 
+    }
+
+    const handleDelete = work => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.delete(`/users/${work._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Task has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
     }
 
     return (
@@ -88,7 +121,7 @@ const WorkSheet = () => {
                         </div>
                     </form>
                 </div>
-                <div>
+                <div className='py-10'>
                     <div className="overflow-x-auto">
                         <table className="table">
                             {/* head */}
@@ -105,14 +138,16 @@ const WorkSheet = () => {
                             </thead>
                             <tbody className='text-white'>
                                 {/* row 1 */}
-                                <tr>
-                                    <th>1</th>
-                                    <td>Cy Ganderton</td>
-                                    <td>Quality Control Specialist</td>
-                                    <td>Blue</td>
-                                    <td>Blue</td>
-                                    <td>Blue</td>
-                                </tr>
+                                {
+                                    workSheets.map((work, index)=> <tr key={work._id}>
+                                    <th>{index + 1}</th>
+                                    <td>{work.tasks}</td>
+                                    <td>{work.hours}</td>
+                                    <td>{format(new Date(work.date), 'P')}</td>
+                                    <td><button><FaX className='text-red-700 font-bold'></FaX></button></td>
+                                    <td><button><FaEdit className='text-orange-500'></FaEdit></button></td>
+                                </tr>)
+                                }
                             </tbody>
                         </table>
                     </div>
