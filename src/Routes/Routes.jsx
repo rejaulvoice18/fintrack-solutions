@@ -8,11 +8,11 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import HrHome from "../pages/Dashboard/HrHome/HrHome";
 import EmployeeHome from "../pages/Dashboard/EmployeeHome/EmployeeHome";
 import AllEmployee from "../pages/Dashboard/AllEmployee/AllEmployee";
-import Payment from "../pages/Dashboard/Payment/Payment";
 import WorkSheet from "../pages/Dashboard/WorkSheet/WorkSheet";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import EmployeeList from "../pages/Dashboard/EmployeeList/EmployeeList";
 import Progress from "../pages/Dashboard/Progress/Progress";
+import PayRoll from "../pages/Dashboard/PayRoll/PayRoll";
 
 export const router = createBrowserRouter([
     {
@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'payroll',
-                element: <Payment></Payment>
+                element: <PayRoll></PayRoll>
             },
             // hr routes
             {

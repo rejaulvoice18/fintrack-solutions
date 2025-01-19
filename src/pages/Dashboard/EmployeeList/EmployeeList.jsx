@@ -5,12 +5,10 @@ import { FcViewDetails } from "react-icons/fc";
 import { FaCheckSquare } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 import Swal from "sweetalert2";
-import { useState } from "react";
-
 
 const EmployeeList = () => {
     const axiosSecure = useAxiosSecure();
-
+   
     const { data: userlist = [], refetch } = useQuery({
         // queryKey er madhome data cache kora hochhe aikhane
         queryKey: ['userlist'],
@@ -19,6 +17,8 @@ const EmployeeList = () => {
             return res.data;
         }
     })
+
+    console.log(userlist)
 
     const handleMakeVerified = user => {
         axiosSecure.patch(`/users/verified/${user._id}`)
