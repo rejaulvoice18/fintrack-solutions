@@ -5,6 +5,7 @@ import { FcViewDetails } from "react-icons/fc";
 import { FaCheckSquare } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 
 const EmployeeList = () => {
@@ -34,6 +35,8 @@ const EmployeeList = () => {
                     });
                 }
             })
+
+          
     }
     return (
         <div>
@@ -68,7 +71,7 @@ const EmployeeList = () => {
                                 </td>
                                 <td>{user.bank_account_no}</td>
                                 <td>{user.salary}</td>
-                                <td><button><TbMoneybag className="text-yellow-600" size={20}></TbMoneybag></button></td>
+                                <td><button disabled={!user.isVerified} className={`${user.isVerified === 'true' ? 'text-yellow-600' : 'text-gray-400 cursor-not-allowed'}`}><TbMoneybag  size={20}></TbMoneybag></button></td>
                                 <td><button><FcViewDetails></FcViewDetails></button></td>
                             </tr>)
                         }
