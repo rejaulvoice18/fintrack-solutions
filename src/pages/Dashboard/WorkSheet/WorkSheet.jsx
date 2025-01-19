@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
+import { useQuery } from '@tanstack/react-query';
 
 const WorkSheet = () => {
     const { user } = useAuth();
@@ -12,6 +13,14 @@ const WorkSheet = () => {
     const [startDate, setStartDate] = useState(new Date())
     const axiosSecure = useAxiosSecure()
     
+    const { data: workSheets = [], refetch } = useQuery({
+        // queryKey er madhome data cache kora hochhe aikhane
+        queryKey: ['worksheet'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/worksheet');
+            return res.data;
+        }
+    })
 
     const onSubmit = async (data) => {
         // create work info in the database
@@ -26,6 +35,7 @@ const WorkSheet = () => {
         const workData = await axiosSecure.post('/work-sheet', workInfo);
         console.log('with image url', workData.data)
         if (workData.data.insertedId) {
+            refetch()
             Swal.fire({
                 position: "top-end",
                 icon: "success",
