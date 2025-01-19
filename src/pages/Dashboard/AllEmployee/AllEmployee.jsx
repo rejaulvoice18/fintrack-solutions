@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaCheckSquare, FaEdit, FaFire } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 
 const AllEmployee = () => {
@@ -15,9 +16,27 @@ const AllEmployee = () => {
         }
     })
 
+    // making hr mechanism
+    const handleMakeAdmin = user => {
+        // request interceptor to add authorization header for every secure call to the api
+        axiosSecure.patch(`/users/hr/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is an HR Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
     return (
         <div>
-            <h2 className='text-xl text-white'>All Employees</h2>
+            <h2 className='text-xl text-white py-5'>All Employees</h2>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -48,7 +67,11 @@ const AllEmployee = () => {
                             <td>$ {user.salary}</td>
                             <td><button><FaEdit className="bg-orange-500 p-1" size={20}></FaEdit></button></td>
                             <td><button><FaFire className="text-orange-500" size={20}></FaFire></button></td>
-                            <td>{ user.role === 'employee' ? <><button><span>[]</span></button></> : <FaCheckSquare className="text-green-500"></FaCheckSquare> }</td>
+                            <td>
+                                { user.role === 'employee' ? <button
+                                 onClick={()=> handleMakeAdmin(user)}><span>[]</span></button> 
+                                 : <FaCheckSquare className="text-green-500"></FaCheckSquare> }
+                                </td>
                             <td>Blue</td>
                         </tr>)
                           }
