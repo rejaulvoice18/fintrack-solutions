@@ -1,8 +1,9 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingCart, FaStar, FaUsers, FaUtensils, } from "react-icons/fa";
+import { FaCalendar, FaHome, FaList, FaUsers, } from "react-icons/fa";
 import useAdmin from '../hooks/useAdmin';
 import useEmployee from '../hooks/useEmployee';
 import useHr from '../hooks/useHr';
+import { FaBarsProgress } from 'react-icons/fa6';
 
 const Dashboard = () => {
     //TODO: get isAdmin value from the database
@@ -39,7 +40,10 @@ const Dashboard = () => {
                                 <NavLink to='/dashboard/hrHome'> <FaHome></FaHome>HR Home </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/reservation'> <FaCalendar></FaCalendar> Reservation </NavLink>
+                                <NavLink to='/dashboard/employee-list'> <FaList></FaList>Employee List</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/dashboard/progress'> <FaBarsProgress></FaBarsProgress> Progress </NavLink>
                             </li>
                         </>
                     }

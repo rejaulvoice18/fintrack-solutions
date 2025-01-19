@@ -5,11 +5,13 @@ import { Tooltip as ReactTooltip } from 'react-tooltip'
 import useAdmin from '../../hooks/useAdmin';
 import useEmployee from '../../hooks/useEmployee';
 import logo from '../../assets/logo.png';
+import useHr from '../../hooks/useHr';
 
 const NavBar = () => {
     const { user, logOutUSer } = useAuth();
     const [isAdmin] = useAdmin()
     const [isEmployee] = useEmployee()
+    const [isHr] = useHr()
 
     const navOptions = <>
         {
@@ -17,6 +19,9 @@ const NavBar = () => {
         }
         {
             user && isEmployee && <li><NavLink to="/dashboard/employeeHome">Dashboard</NavLink></li>
+        }
+        {
+            user && isHr && <li><NavLink to="/dashboard/hrHome">Dashboard</NavLink></li>
         }
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
