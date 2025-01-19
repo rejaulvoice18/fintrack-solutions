@@ -18,7 +18,6 @@ const AllEmployee = () => {
 
     // making hr mechanism
     const handleMakeAdmin = user => {
-        // request interceptor to add authorization header for every secure call to the api
         axiosSecure.patch(`/users/hr/${user._id}`)
             .then(res => {
                 console.log(res.data)
