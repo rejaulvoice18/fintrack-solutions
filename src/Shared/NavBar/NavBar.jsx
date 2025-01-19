@@ -4,6 +4,7 @@ import useAuth from '../../hooks/useAuth';
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 import useAdmin from '../../hooks/useAdmin';
 import useEmployee from '../../hooks/useEmployee';
+import logo from '../../assets/logo.png';
 
 const NavBar = () => {
     const { user, logOutUSer } = useAuth();
@@ -70,7 +71,9 @@ const NavBar = () => {
                                 {navOptions}
                             </ul>
                         </div>
-                        <a className="btn btn-ghost text-xl">FinTrack Solutions</a>
+                        <a className="btn btn-ghost text-xl">
+                            <img className='w-10' src={logo} alt="" />
+                            FinTrack Solutions</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">

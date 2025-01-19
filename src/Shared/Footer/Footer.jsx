@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
     return (
@@ -10,6 +11,7 @@ const Footer = () => {
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
                         <div className=''>
                             <Link>
+                                <img src={logo} alt="" />
                                 <h2 className='text-white text-2xl'>FinTrack <br/> Solutions</h2>
                             </Link>
                         </div>
