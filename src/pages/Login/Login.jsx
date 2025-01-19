@@ -25,7 +25,7 @@ const Login = () => {
 
         })
         .catch(err=>{
-            toast.error('Wrong Credentials')
+            toast.error('Wrong Password')
         })
     }
     return (
