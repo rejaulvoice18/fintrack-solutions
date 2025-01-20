@@ -25,7 +25,7 @@ const WorkSheet = () => {
         }
     })
 
-    console.log(workSheets)
+    
 
     const onSubmit = async (data) => {
         // create work info in the database
@@ -38,7 +38,7 @@ const WorkSheet = () => {
         }
         // saving data to the server
         const workData = await axiosSecure.post('/work-sheet', workInfo);
-        console.log('with image url', workData.data)
+        
         if (workData.data.insertedId) {
             refetch()
             reset()

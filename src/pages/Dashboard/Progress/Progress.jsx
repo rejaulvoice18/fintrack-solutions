@@ -16,7 +16,7 @@ const Progress = () => {
 
     const singleName = [...new Set(progress.map(name => name.name))];
 
-    console.log(singleName)
+    
     return (
         <div>
             <h2 className='text-xl pb-5 text-white'>Progress</h2>

@@ -21,7 +21,7 @@ const Register = () => {
     const navigate = useNavigate()
 
     const onSubmit = async (data) => {
-        console.log(data)
+       
        // image upload to imgbb and then get an url
        const imageFile = { image: data.image[0] }
        const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -29,12 +29,12 @@ const Register = () => {
                'content-type': 'multipart/form-data'
            }
        })
-        // console.log(res.data.data.display_url)
+        
 
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
+                
 
                 // updating user profile
                 updateUserProfile(data.name, res.data.data.display_url)
@@ -53,7 +53,7 @@ const Register = () => {
                             }
                             // saving data to the server
                             const userData = await axiosPublic.post('/users', userInfo);
-                            console.log('with image url', userData.data)
+                           
                             if (userData.data.insertedId) {
                                 Swal.fire({
                                     position: "top-end",

@@ -47,7 +47,9 @@ const NavBar = () => {
     const handleSignOut = () => {
         logOutUSer()
             .then(() => { })
-            .then(err => console.log(err.message))
+            .then(err => {
+                
+            })
     }
     return (
         <div className='bg-pink-700'>

@@ -18,12 +18,12 @@ const EmployeeList = () => {
         }
     })
 
-    console.log(userlist)
+    
 
     const handleMakeVerified = user => {
         axiosSecure.patch(`/users/verified/${user._id}`)
             .then(res => {
-                console.log(res.data)
+              
                 if (res.data.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
