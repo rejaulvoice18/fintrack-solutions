@@ -150,12 +150,12 @@ const Register = () => {
                             </label>
                             <input type="password" {...register("password", {
                                 required: true,
-                                minLength: 8,
+                                minLength: 6,
                                 maxLength: 20,
                                 pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
                             })} name="password" placeholder="password" className="input input-bordered" />
                             {errors.password?.type === 'required' && <p className='text-red-600'>Password is required</p>}
-                            {errors.password?.type === 'minLength' && <p className='text-red-600'>Password must be 8 charactrs</p>}
+                            {errors.password?.type === 'minLength' && <p className='text-red-600'>Password must be more than 6 charactrs</p>}
                             {errors.password?.type === 'maxLength' && <p className='text-red-600'>Password must be less than 20 charactrs</p>}
                             {errors.password?.type === 'pattern' && <p className='text-red-600'>Password must have minimum eight characters, at least one letter and one number</p>}
                             <label className="label">
@@ -167,7 +167,7 @@ const Register = () => {
                             <button className="btn bg-pink-500 hover:bg-pink-700">SignUp</button>
                         </div>
                     </form>
-                    <p className='pb-4 text-center'><small>Already have an account <Link to="/login">Login</Link></small></p>
+                    <p className='pb-4 text-center'><small className='text-green-600'>Already have an account <Link to="/login">Login</Link></small></p>
                 </div>
             </div>
         </div>

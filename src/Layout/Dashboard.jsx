@@ -28,7 +28,7 @@ const Dashboard = () => {
                                 <NavLink to='/dashboard/all-employee-list'> <FaUsers></FaUsers> All Employees</NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/payroll'> <FaList></FaList>Payment</NavLink>
+                                <NavLink to='/dashboard/payroll'> <FaList></FaList>Payroll</NavLink>
                             </li>
                         </>
                     }

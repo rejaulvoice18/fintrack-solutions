@@ -13,15 +13,27 @@ import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import EmployeeList from "../pages/Dashboard/EmployeeList/EmployeeList";
 import Progress from "../pages/Dashboard/Progress/Progress";
 import PayRoll from "../pages/Dashboard/PayRoll/PayRoll";
+import ContactUs from "../pages/ContactUs/ContactUs";
+import AdminRoute from "./AdminRoute";
+import HrRoute from "./HrRoute";
+import EmployeeRoute from "./EmployeeRoute";
+import PaymentHr from "../pages/Dashboard/PaymentHr/PaymentHr";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: 'contact-us',
+                element: <ContactUs></ContactUs>
             },
             {
                 path: 'login',
@@ -36,46 +48,51 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             //admin routes
             {
                 path: 'adminHome',
-                element: <AdminHome></AdminHome>
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
                 path: 'all-employee-list',
-                element: <AllEmployee></AllEmployee>
+                element: <AdminRoute><AllEmployee></AllEmployee></AdminRoute>
             },
             {
                 path: 'payroll',
-                element: <PayRoll></PayRoll>
+                element: <AdminRoute><PayRoll></PayRoll></AdminRoute>
             },
             // hr routes
             {
                 path: 'hrHome',
-                element: <HrHome></HrHome>
+                element: <HrRoute><HrHome></HrHome></HrRoute>
             },
             {
                 path: 'employee-list',
-                element: <EmployeeList></EmployeeList>
+                element: <HrRoute><EmployeeList></EmployeeList></HrRoute>
             },
             {
                 path: 'progress',
-                element: <Progress></Progress>
+                element: <HrRoute><Progress></Progress></HrRoute>
+            },
+            {
+                path: 'paymentpost/:id',
+                element: <HrRoute><PaymentHr></PaymentHr></HrRoute>,
             },
             // employee home
             {
                 path: 'employeeHome',
-                element: <EmployeeHome></EmployeeHome>
+                element: <EmployeeRoute><EmployeeHome></EmployeeHome></EmployeeRoute>
             },
             {
                 path: 'work-sheet',
-                element: <WorkSheet></WorkSheet>
+                element: <EmployeeRoute><WorkSheet></WorkSheet></EmployeeRoute>
             },
             {
                 path: 'payment-history',
-                element: <PaymentHistory></PaymentHistory>
+                element: <EmployeeRoute><PaymentHistory></PaymentHistory></EmployeeRoute>
             }
         ]
     }

@@ -60,7 +60,7 @@ const Login = () => {
                         </div>
                     </form>
                     <div className='flex justify-center pb-3'>
-                        <h2>Don't Have Account? <Link to="/signup"><span className='text-green-500'>Register Here</span></Link></h2>
+                        <h2>Don't Have Account? <Link to="/signUp"><span className='text-green-500'>Register Here</span></Link></h2>
                     </div>
                     <SocialLogin></SocialLogin>
                 </div>

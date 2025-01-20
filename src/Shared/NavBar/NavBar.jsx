@@ -24,8 +24,6 @@ const NavBar = () => {
             user && isHr && <li><NavLink to="/dashboard/hrHome">Dashboard</NavLink></li>
         }
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/contact">Contact</NavLink></li>
-        <li><NavLink to="/About">About</NavLink></li>
         <li><NavLink to="/contact-us">Contact Us</NavLink></li>
 
 

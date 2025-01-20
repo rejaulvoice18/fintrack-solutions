@@ -16,12 +16,12 @@ const Progress = () => {
 
     const singleName = [...new Set(progress.map(name => name.name))];
 
-    
+
     return (
         <div>
             <h2 className='text-xl pb-5 text-white'>Progress</h2>
             <div className='flex flex-col md:flex-row justify-center items-center gap-5 my-10 '>
-            <div>
+                <div>
                     <select
                         name='category'
                         id='category'
@@ -48,7 +48,7 @@ const Progress = () => {
                         <option value='2'>2</option>
                         <option value='3'>3</option>
                         <option value='4'>4</option>
-                        
+
                     </select>
                 </div>
             </div>
