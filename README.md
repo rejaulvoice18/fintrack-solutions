@@ -2,7 +2,7 @@ Client-side:
 
 # E-Tutor
 
-![Project Screenshot](https://677c03012de37e47e62b4b50--rejaul-karim.netlify.app/assets/port1-k4fUNTwp.png) <!-- Replace this link with the actual screenshot of your project -->
+![Project Screenshot](https://rejaul-karim.netlify.app/assets/port4-Dg4yu9kT.png) <!-- Replace this link with the actual screenshot of your project -->
 
 ## 🛠 Overview
 **This Employee Management System is a comprehensive web application designed to help companies efficiently monitor employee workload, manage salaries, and maintain contract records. Employees can update their workflow, ensuring transparency in task completion. The HR Executive oversees employee activities, verifies tasks, and manages salary requests, while the Admin has full control over monitoring all functionalities, including employee verification, promotions, and salary approvals. The system ensures role-based access, streamlining workforce management with an intuitive and organized interface.
