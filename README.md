@@ -5,7 +5,12 @@ Client-side:
 ![Project Screenshot](https://677c03012de37e47e62b4b50--rejaul-karim.netlify.app/assets/port1-k4fUNTwp.png) <!-- Replace this link with the actual screenshot of your project -->
 
 ## 🛠 Overview
-**The web app aims to provide a seamless platform for users to book language lessons with tutors, enhancing accessibility to personalized learning and enabling tutors to manage their offerings efficiently.
+**This Employee Management System is a comprehensive web application designed to help companies efficiently monitor employee workload, manage salaries, and maintain contract records. Employees can update their workflow, ensuring transparency in task completion. The HR Executive oversees employee activities, verifies tasks, and manages salary requests, while the Admin has full control over monitoring all functionalities, including employee verification, promotions, and salary approvals. The system ensures role-based access, streamlining workforce management with an intuitive and organized interface.
+
+## Password and user:
+-Admin: 
+user: paula@gmail.com
+password: Paula123456
 
 ## 🚀 Technologies Used
 - **Frontend**: React.js, Tailwind CSS, Daisy UI
@@ -14,13 +19,15 @@ Client-side:
 - **Others**: Firebase Authentication, Vercel (for backend deployment), and Firebase Hosting (for frontend deployment)
 
 ## 🌟 Features
-- User authentication (email/password and Google Sign-In)
-- Dynamic booking system for [specific service]
-- Review system for user feedback
-- Fully responsive design with Tailwind CSS and Daisy UI components
-- Tutor Management
-- Booking System
-- Dark and light theme functionality
+- Employee Dashboard 
+- HR Dashboard
+- Admin Dashboard
+- Role-Based Access Control
+- Task Management
+- Salary & Payment Management 
+- Employee Verification
+- Intuitive UI & Responsive Design
+- Real-Time Monitoring
 
 ## 📦 Dependencies
 Here are the main dependencies used in this project:
@@ -57,7 +64,6 @@ Make sure you have installed:
 4. Set up the environment variables:
    Create a .env.local file in the root directory.
    Add the following variables:
-   VITE_API_URL=http://localhost:5000
    FIREBASE_API_KEY=your_firebase_api_key
    FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
 
