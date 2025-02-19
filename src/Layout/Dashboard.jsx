@@ -4,6 +4,7 @@ import useAdmin from '../hooks/useAdmin';
 import useEmployee from '../hooks/useEmployee';
 import useHr from '../hooks/useHr';
 import { FaBarsProgress } from 'react-icons/fa6';
+import { Helmet } from 'react-helmet-async';
 
 const Dashboard = () => {
     //TODO: get isAdmin value from the database
@@ -14,6 +15,9 @@ const Dashboard = () => {
 
     return (
         <div className="md:flex">
+            <Helmet>
+                <title>FinTrack Solutions | Dashboard</title>
+            </Helmet>
             {/* dashboard side bar */}
             <div className="md:w-64 md:min-h-screen bg-pink-700 text-white">
                 <ul className="menu p-4">

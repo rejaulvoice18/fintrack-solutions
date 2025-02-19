@@ -4,6 +4,7 @@ import { FaCheckSquare, FaEdit, FaFire } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { FcViewDetails } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 
 const AllEmployee = () => {
@@ -54,6 +55,9 @@ const AllEmployee = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Fintrack Solutions | Employees</title>
+            </Helmet>
             <div className="flex gap-20">
                 <h2 className='text-xl text-white py-5'>All Employee List</h2>
                 <div className="flex gap-5">

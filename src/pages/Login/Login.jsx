@@ -5,6 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const { signInUser } = useAuth();
@@ -31,6 +32,9 @@ const Login = () => {
     }
     return (
         <div className="hero my-5 md:my-20">
+            <Helmet>
+                <title>Fintrack Solutions | Login</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left w-96">
                     <Lottie animationData={LoginData}></Lottie>

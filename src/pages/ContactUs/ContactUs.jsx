@@ -1,10 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaPhone } from 'react-icons/fa';
 import { MdOutlineEmail } from 'react-icons/md';
 
 const ContactUs = () => {
     return (
         <div className='px-5'>
+            <Helmet>
+                <title>FinTrack Solutions | Contact Us</title>
+            </Helmet>
             <div className='max-w-screen-xl mx-auto'>
                 <h2 className='text-xl text-white py-10'>Contact Us</h2>
                 <div className='my-5 md:my-10'>
