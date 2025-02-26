@@ -20,6 +20,7 @@ import EmployeeRoute from "./EmployeeRoute";
 import PaymentHr from "../pages/Dashboard/PaymentHr/PaymentHr";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import AboutUs from "../pages/AboutUs";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
             {
                 path: 'signUp',
                 element: <Register></Register>
+            },
+            {
+                path: 'aboutUs',
+                element: <AboutUs></AboutUs>
             }
         ]
 
